@@ -117,3 +117,12 @@ class TodoDatabase:
         
         conn.commit()
         conn.close()
+
+    def clear_all_todos(self):
+        conn = self.get_connection()
+        c = conn.cursor()
+        
+        c.execute('DELETE FROM todos')
+        
+        conn.commit()
+        conn.close()
